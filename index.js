@@ -1,7 +1,10 @@
+// TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const questions =[
+// TODO: Create an array of questions for user input
+
+const questions = [
     {
         type: 'input', // This prompt is for the user to enter the name of their project.
         message: 'What is the name of your project?',
@@ -58,14 +61,33 @@ const questions =[
 
     console.log(data)
 
-].then((data) => {
-    console.log(data);
-    fs.writeFile('',
-    JSON.stringify(data, null, "\t"), (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Check your data!');
-        }
-    })
-});
+];
+
+// TODO: Create a function to write README file
+fs.writeToFile(README1.md, (data, null, "\t"), (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('Check your data!');
+    }
+});    
+
+
+
+// TODO: Create a function to initialize app
+function init() {}
+
+// Function call to initialize app
+init();
+
+// .then((data) => {
+//     console.log(data);
+//     fs.writeFile('README1.md',
+//     (data, null, "\t"), (err) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log('Check your data!');
+//         }
+//     })
+// });
