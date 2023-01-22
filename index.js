@@ -1,9 +1,5 @@
-// TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-
-// TODO: Create an array of questions for user input
-
 const questions = [
     {
         type: 'input', // This prompt is for the user to enter the name of their project.
@@ -58,36 +54,48 @@ const questions = [
         message: 'Please enter your email address for any further questions another user might have.',
         name: 'email',
     },
-
-    console.log(data)
-
 ];
 
-// TODO: Create a function to write README file
-fs.writeToFile(README1.md, (data, null, "\t"), (err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Check your data!');
-    }
-});    
-
-
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
-// .then((data) => {
-//     console.log(data);
-//     fs.writeFile('README1.md',
-//     (data, null, "\t"), (err) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log('Check your data!');
-//         }
-//     })
-// });
+function init() {
+    inquirer.prompt(questions).then(data => {
+        const userInput = 
+            `# ${data.projectName}\n\n\n` + //Takes data from user input for Project Name
+            
+            `## Table of Contents\n` + //Takes data from user input for Table of Contents
+            `${data.tableOfContents}\n\n` +
+    
+            `## Description\n` + //Takes data from user input for the description
+            `${data.description}\n\n` +
+    
+            `## Installation\n` + //Takes data from user input for Installation Instructions
+            `${data.instructions}\n\n` +
+    
+            `## Usage\n` + //Takes user input data for Usage instructions
+            `${data.usage}\n\n` +
+    
+            `## License\n` + //Takes user input data for License 
+            `${data.License}\n\n` +
+    
+            `## Contributing\n` + //takes user input for all contributions 
+            `${data.Contributing}\n\n` +
+    
+            `## Tests\n` + //Takes data from user input for any tests
+            `${data.tests}\n\n` +
+    
+            `## GitHub\n` + //takes user input for users GitHub username
+            `https://www.github.com/${data.github}/\n\n` +
+    
+            `## Contact\n` + //Takes data from User input for email and how to contact them with further questions.
+            `Email: ${data.email}\n\n`;
+    
+        fs.writeFile(`${data.projectName}.md`, userInput, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Success! Pikachu has evolved into Raichu!");
+            }
+        });
+    });
+}
+    
+init()
