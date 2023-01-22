@@ -29,9 +29,9 @@ const questions = [
     {
         type: 'list', // This is for the user to select what kind of license the project creator would like to add, if any.
         message: 'Please select a license for your project.',
-        choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT license', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License',
-                    'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License c3.0',
-                'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'],
+        choices: ['None', 'MIT license', 'BSD 2-Clause "Simplified" License',
+                'Boost Software License 1.0', 'GNU Affero General Public License c3.0',
+                'Mozilla Public License 2.0', 'The Unlicense'],
         name: 'License',
     },
     {
@@ -62,7 +62,14 @@ function init() {
             `# ${data.projectName}\n\n\n` + //Takes data from user input for Project Name
             
             `## Table of Contents\n` + //Takes data from user input for Table of Contents
-            `${data.tableOfContents}\n\n` +
+            `${data.tableOfContents}\n
+            [Installation] (#Installation)\n
+            [Usage] (#Usage)\n
+            [License] (#License)\n
+            [Contributing] (#Contributing)\n
+            [Tests] (#Tests)\n
+            [Github] (#Github)\n
+            [Contact] (#Contact)\n\n` +
     
             `## Description\n` + //Takes data from user input for the description
             `${data.description}\n\n` +
@@ -87,6 +94,7 @@ function init() {
     
             `## Contact\n` + //Takes data from User input for email and how to contact them with further questions.
             `Email: ${data.email}\n\n`;
+        
     
         fs.writeFile(`${data.projectName}.md`, userInput, (err) => {
             if (err) {
@@ -94,8 +102,26 @@ function init() {
             } else {
                 console.log("Success! Pikachu has evolved into Raichu!");
             }
-        });
-    });
-}
-    
+        })
+    })
+};
+
+function licenseBadge(License) {
+    if(License == 'MIT') {
+        return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+    } else if (License == 'BSD 2-clause "simplified" license') {
+        return '![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
+    } else if (License == 'Boost Software License 1.0') {
+        return '![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+    } else if (License == 'GNU Affero General Public License c3.0') {   
+        return '![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
+    } else if (License == 'Mozilla Public License 2.0') {
+        return '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+    } else if (License == 'The Unlicense') {
+        return '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
+    } else {
+        return " ";    
+    }
+};    
+
 init()
