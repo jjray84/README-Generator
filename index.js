@@ -60,8 +60,8 @@ function init() {
     inquirer.prompt(questions).then(data => {
         const userInput = 
             `# ${data.projectName}\n\n\n` + //Takes data from user input for Project Name
-            
             `## Table of Contents\n` + //Takes data from user input for Table of Contents
+            
             `${data.tableOfContents}\n
             [Installation] (#Installation)\n
             [Usage] (#Usage)\n
