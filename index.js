@@ -63,13 +63,13 @@ function init() {
             `## Table of Contents\n` + //Takes data from user input for Table of Contents
             
             `${data.tableOfContents}\n
-            [Installation] (#Installation)\n
-            [Usage] (#Usage)\n
-            [License] (#License)\n
-            [Contributing] (#Contributing)\n
-            [Tests] (#Tests)\n
-            [Github] (#Github)\n
-            [Contact] (#Contact)\n\n` +
+[Installation](#installation)\n
+[Usage](#usage)\n
+[License](#license)\n
+[Contributing](#contributing)\n
+[Tests](#tests)\n
+[Github](#github)\n
+[Contact](#contact)\n\n` +
     
             `## Description\n` + //Takes data from user input for the description
             `${data.description}\n\n` +
@@ -81,7 +81,7 @@ function init() {
             `${data.usage}\n\n` +
     
             `## License\n` + //Takes user input data for License 
-            `${data.License}\n\n` +
+            `${licenseBadge(data.License)}\n\n` +
     
             `## Contributing\n` + //takes user input for all contributions 
             `${data.Contributing}\n\n` +
@@ -108,17 +108,17 @@ function init() {
 
 function licenseBadge(License) {
     if(License == 'MIT') {
-        return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+        return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
     } else if (License == 'BSD 2-clause "simplified" license') {
-        return '![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
+        return '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
     } else if (License == 'Boost Software License 1.0') {
-        return '![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+        return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
     } else if (License == 'GNU Affero General Public License c3.0') {   
-        return '![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
+        return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
     } else if (License == 'Mozilla Public License 2.0') {
-        return '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+        return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
     } else if (License == 'The Unlicense') {
-        return '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
+        return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
     } else {
         return " ";    
     }

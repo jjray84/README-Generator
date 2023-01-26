@@ -4,19 +4,19 @@
 ## Table of Contents
 N/A
 
-            [Installation] (#Installation)
+[Installation](#installation)
 
-            [Usage] (#Usage)
+[Usage](#usage)
 
-            [License] (#License)
+[License](#license)
 
-            [Contributing] (#Contributing)
+[Contributing](#contributing)
 
-            [Tests] (#Tests)
+[Tests](#tests)
 
-            [Github] (#Github)
+[Github](#github)
 
-            [Contact] (#Contact)
+[Contact](#contact)
 
 ## Description
 This project is designed to create a professional README file using NodeJS.
